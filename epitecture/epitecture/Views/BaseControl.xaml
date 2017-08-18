@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="#47474E">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -18,8 +18,8 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Button Content="Gallery Images" Grid.Column="1" Foreground="White" Background="Transparent" FontFamily="Calibri" Command="{Binding OnGalleryImageButton}" />
-        <Button Content="Account Images" Grid.Column="2" Foreground="White" Background="Transparent" FontFamily="Calibri" Command="{Binding OnAccountImageButton}" />
-        <Button Content="Favorites"  Grid.Column="3" Foreground="White" Background="Transparent" FontFamily="Calibri" Command="{Binding OnFavoritesButton}" />
+        <Button Content="Gallery Images" Grid.Column="1" FontFamily="Calibri" Command="{Binding OnGalleryImageButton}" />
+        <Button Content="Account Images" Grid.Column="2" FontFamily="Calibri" Command="{Binding OnAccountImageButton}" />
+        <Button Content="Favorites"  Grid.Column="3"  FontFamily="Calibri" Command="{Binding OnFavoritesButton}" />
     </Grid>
 </Page>

@@ -14,8 +14,8 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Upload Image : " Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" FontFamily="Calibri"/>
-        <TextBox Text="" HorizontalAlignment="Stretch" Grid.Column="1" Foreground="White" Background="Transparent" FontFamily="Calibri"/>
-        <Button Content="Browse" Grid.Column="2" Foreground="White" Background="Transparent" FontFamily="Calibri"/>
+        <TextBlock Text="Upload Image : " Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"  FontFamily="Calibri"/>
+        <TextBox Text="" HorizontalAlignment="Stretch" Grid.Column="1"  Background="Transparent" FontFamily="Calibri"/>
+        <Button Content="Browse" Grid.Column="2"  Background="Transparent" FontFamily="Calibri"/>
     </Grid>
 </Page>

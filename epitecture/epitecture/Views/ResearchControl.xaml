@@ -17,12 +17,12 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Recherche : " Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" FontFamily="Calibri"/>
-        <TextBox Text="{Binding SearchText, Mode=TwoWay}" PlaceholderText="Tapez votre recherche ici" Grid.Column="1" HorizontalAlignment="Stretch" Foreground="Black" Background="Gray" FontFamily="Calibri"/>
-        <Button Content="reseach" Command="{Binding OnSearchCommand}" Grid.Column="2" Foreground="White" Background="Transparent" FontFamily="Calibri"/>
-        <TextBlock Text="Size : " Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" FontFamily="Calibri"/>
-        <ComboBox Grid.Column="4" ItemsSource="{Binding Sizes}" SelectedItem="{Binding SelectedSize, Mode=TwoWay}" HorizontalAlignment="Left" Foreground="White" Background="Transparent" FontFamily="Calibri"/>
-        <TextBlock Text="Type : " Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" FontFamily="Calibri"/>
-        <ComboBox Grid.Column="6" ItemsSource="{Binding Types}" SelectedItem="{Binding SelectedType, Mode=TwoWay}" HorizontalAlignment="Left" Foreground="White" Background="Transparent" FontFamily="Calibri"/>
+        <TextBlock Text="Recherche : " Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"  FontFamily="Calibri"/>
+        <TextBox Text="{Binding SearchText, Mode=TwoWay}" PlaceholderText="Tapez votre recherche ici" Grid.Column="1" HorizontalAlignment="Stretch"  FontFamily="Calibri"/>
+        <Button Content="reseach" Command="{Binding OnSearchCommand}" Grid.Column="2" FontFamily="Calibri"/>
+        <TextBlock Text="Size : " Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"  FontFamily="Calibri"/>
+        <ComboBox Grid.Column="4" ItemsSource="{Binding Sizes}" SelectedItem="{Binding SelectedSize, Mode=TwoWay}" HorizontalAlignment="Left"  FontFamily="Calibri"/>
+        <TextBlock Text="Type : " Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"  FontFamily="Calibri"/>
+        <ComboBox Grid.Column="6" ItemsSource="{Binding Types}" SelectedItem="{Binding SelectedType, Mode=TwoWay}" HorizontalAlignment="Left"  FontFamily="Calibri"/>
     </Grid>
 </Page>

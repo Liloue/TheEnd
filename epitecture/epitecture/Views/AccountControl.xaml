@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid Background="#1E1E1E">
+        <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="5*"/>
@@ -19,20 +19,20 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Grid.ColumnSpan="3" Background="#47474E">
+            <Grid Grid.Row="0" Grid.ColumnSpan="3">
                 <local:BaseControl/>
             </Grid>
-            <Grid x:Name="ImageListContext" Background="Transparent" Grid.Row="1" Grid.Column="1">
+            <Grid x:Name="ImageListContext" Grid.Row="1" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <TextBlock Text="" Visibility="Visible" Grid.Row="0"/>
-                <Grid Background="Transparent" Grid.Row="1">
+                <Grid Grid.Row="1">
                     <local:UploadControl/>
                 </Grid>
-                <Grid Background="Transparent" Grid.Row="2">
+                <Grid Grid.Row="2">
                     <local:ImageList/>
                 </Grid>
             </Grid>
