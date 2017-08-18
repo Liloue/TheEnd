@@ -97,8 +97,12 @@
     </Compile>
     <Compile Include="Models\ResultModel.cs" />
     <Compile Include="Services\ServiceProvider.cs" />
+    <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="ViewModels\CommandBase.cs" />
-    <Compile Include="ViewModels\ImageListViewModel.cs" />
+    <Compile Include="ViewModels\FavoriteViewModel.cs" />
+    <Compile Include="ViewModels\GalleryViewModel.cs" />
+    <Compile Include="ViewModels\PageViewModelBase.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
