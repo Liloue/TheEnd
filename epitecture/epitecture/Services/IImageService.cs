@@ -23,7 +23,7 @@ namespace epitecture.Services
 
         Task<bool> RemoveImageFromFavoriteAsync(ImageModel image);
 
-        Task<bool> SearchPicturesAsync(string quest, string size, string type, int page);
+        Task<ResultModel> SearchPicturesAsync(string quest, string size, string type, int page = 0);
 
         Task<bool> LoadFavoritesAsync(ImagePageModel imagePage);
         

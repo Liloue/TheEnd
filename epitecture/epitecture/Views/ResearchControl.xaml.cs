@@ -25,7 +25,6 @@ namespace epitecture.Views
     {
         public ResearchControl()
         {
-            DataContext = new ResearchViewModel();
             this.InitializeComponent();
         }
     }

@@ -56,5 +56,10 @@ namespace epitecture.ViewModels
             _rootFrame.Navigate(typeof(FavoriteControl), null);
         }
 
+        public void UpdateImages(List<ImageModel> resData)
+        {
+            ImageList = new ObservableCollection<ImageModel>(resData);
+            RaisePropertyChanged(nameof(ImageList));
+        }
     }
 }
