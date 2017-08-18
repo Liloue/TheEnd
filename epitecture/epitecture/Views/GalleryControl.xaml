@@ -8,18 +8,35 @@
     xmlns:view="using:epitecture.Views"
     mc:Ignorable="d">
 
-    <Grid x:Name="ImageListContext" Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <TextBlock Text="" Visibility="Visible" Grid.Row="0"/>
-        <Grid Background="Transparent" Grid.Row="1">
-            <view:ResearchControl/>
-        </Grid>
-        <Grid Background="Transparent" Grid.Row="2">
-            <view:ImageList/>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Background="#1E1E1E">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.ColumnSpan="3" Background="#47474E">
+                <view:BaseControl/>
+            </Grid>
+            <Grid x:Name="ImageListContext" Background="Transparent" Grid.Row="1" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="" Visibility="Visible" Grid.Row="0"/>
+                <Grid Background="Transparent" Grid.Row="1">
+                    <view:ResearchControl/>
+                </Grid>
+                <Grid Background="Transparent" Grid.Row="2">
+                    <view:ImageList/>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Page>
