@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\ResultModel.cs" />
+    <Compile Include="Services\ServiceProvider.cs" />
     <Compile Include="ViewModels\CommandBase.cs" />
     <Compile Include="ViewModels\ImageListViewModel.cs" />
     <Compile Include="MainPage.xaml.cs">

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace epitecture.Services
 {
-    interface IImageService
+    public interface IImageService
     {
         string ClientId { get; set; }
         

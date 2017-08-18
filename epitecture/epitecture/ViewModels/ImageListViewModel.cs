@@ -37,7 +37,7 @@ namespace epitecture.ViewModels
 
         public ImageListViewModel()
         {
-            _imageService = new ImgurService("13ee3954755a5c351d7afd24f16b507114f85029", "Liloue", "f7f8be70568959e");
+            _imageService = ServiceProvider.Instance();
             _page = new ImagePageModel();
             ImageList = new ObservableCollection<ImageModel>(_page.ImageList);
 
