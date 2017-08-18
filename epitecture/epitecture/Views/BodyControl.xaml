@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="epitecture.Views.BodyControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:epitecture"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="using:epitecture.Views"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="ImageListTemplate">
+                <Grid  Height="50" Width="50" HorizontalAlignment="Stretch" Background="Pink">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="TEST42" />
+                    <Image Source="{Binding Link}" Grid.Row="1" HorizontalAlignment="Center"/>
+                    <TextBlock Text="{Binding Title}" Grid.Row="2" HorizontalAlignment="Center"/>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="" Visibility="Visible" Grid.Row="0"/>
+        <Grid Background="AliceBlue" Grid.Row="1">
+            <view:ResearchGrid DataContext="{Binding TaskListVM}"/>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1" Background="Crimson">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="DEBUT" Grid.Row="0" />
+            <ListBox ItemsSource="{Binding ImageList}" 
+                     ItemTemplate="{StaticResource ImageListTemplate}" 
+                     HorizontalContentAlignment="Stretch"
+                     Grid.Row="1">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+            <TextBlock Text="FIN" Grid.Row="2"/>
+        </Grid>
+    </Grid>
+</Page>
