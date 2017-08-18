@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
 
 namespace epitecture.Services
 {
@@ -87,17 +88,28 @@ namespace epitecture.Services
             return (response.IsSuccessStatusCode);
         }
 
-        public async Task<bool> UploadImageAsync(string path)
+        public async Task<bool> UploadImageAsync(StorageFile file)
         {
-            byte[] imageArray = File.ReadAllBytes(path);
-            string imageBase64 = Convert.ToBase64String(imageArray);
-            
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, new Uri("https://api.imgur.com/3/image"));
-            request.Headers.Add("Authorization", "Bearer " + _accessToken);
-            request.Properties.Add("image", imageBase64);
+            return await Task.Run<bool>(async () =>
+            { 
+                var buffer = await FileIO.ReadBufferAsync(file);
+                byte[] fileContent;
+                using (var dataReader = Windows.Storage.Streams.DataReader.FromBuffer(buffer))
+                {
+                    fileContent = new byte[buffer.Length];
+                    dataReader.ReadBytes(fileContent);
+                }
+                string imageBase64 = Convert.ToBase64String(fileContent);
 
-            var response = await _myClient.SendAsync(request);
-            return (response.StatusCode == System.Net.HttpStatusCode.OK);
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, new Uri("https://api.imgur.com/3/image"));
+                request.Headers.Add("Authorization", "Bearer " + _accessToken);
+                request.Content = new MultipartFormDataContent();
+                (request.Content as MultipartFormDataContent).Add(new StringContent(imageBase64), "image");
+                // new StringContent(imageBase64);
+
+                var response = await _myClient.SendAsync(request);
+                return (response.StatusCode == System.Net.HttpStatusCode.OK);
+            });
         }
 
         public async Task<bool> DeleteImageAsync(ImageModel image)
