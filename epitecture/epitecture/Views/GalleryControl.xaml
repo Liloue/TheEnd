@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
         <TextBlock Text="" Visibility="Visible" Grid.Row="0"/>
         <Grid Background="Transparent" Grid.Row="1">
-            <view:ResearchGrid/>
+            <view:ResearchControl/>
         </Grid>
         <Grid Background="Transparent" Grid.Row="2">
             <view:ImageList/>
