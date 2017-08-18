@@ -12,10 +12,12 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Upload Image : " Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"  FontFamily="Calibri"/>
-        <TextBox Text="" HorizontalAlignment="Stretch" Grid.Column="1"  Background="Transparent" FontFamily="Calibri"/>
-        <Button Content="Browse" Grid.Column="2"  Background="Transparent" FontFamily="Calibri"/>
+        <TextBlock Text="Upload Image : " Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Calibri"/>
+        <TextBox Text="{Binding ImagePath, Mode=TwoWay}" HorizontalAlignment="Stretch" Grid.Column="1"  FontFamily="Calibri"/>
+        <Button Content="Browse" Command="{Binding OnBrowserButton}" Grid.Column="2" FontFamily="Calibri"/>
+        <Button Content="Upload" Command="{Binding OnUploadButton}" Grid.Column="3" FontFamily="Calibri" />
     </Grid>
 </Page>

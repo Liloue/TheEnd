@@ -29,8 +29,8 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <TextBlock Text="" Visibility="Visible" Grid.Row="0"/>
-                <Grid Grid.Row="1">
-                    <local:UploadControl/>
+                <Grid Background="Transparent" Grid.Row="1">
+                    <local:UploadControl DataContext="{Binding UploadVM}"/>
                 </Grid>
                 <Grid Grid.Row="2">
                     <local:ImageList/>

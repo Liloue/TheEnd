@@ -8,6 +8,13 @@ namespace epitecture.ViewModels
 {
     public class AccountViewModel : PageViewModelBase
     {
+        public UploadViewModel UploadVM { get; set; }
+
+        public AccountViewModel()
+        {
+            UploadVM = new UploadViewModel(_imageService, this);
+        }
+
         public async Task<bool> Initialize()
         {
             bool response = await _imageService.LoadAccountImagesAsync(_page);

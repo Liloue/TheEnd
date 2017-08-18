@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
 
 namespace epitecture.Services
 {
@@ -11,7 +12,7 @@ namespace epitecture.Services
     {
         string ClientId { get; set; }
         
-        Task<bool> UploadImageAsync(string path);
+        Task<bool> UploadImageAsync(StorageFile file);
 
         Task<bool> LoadAccountImagesAsync(ImagePageModel imagePage);
 
