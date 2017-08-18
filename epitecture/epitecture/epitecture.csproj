@@ -123,8 +123,11 @@
     <Compile Include="Views\ImageList.xaml.cs">
       <DependentUpon>ImageList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ResearchGrid.xaml.cs">
-      <DependentUpon>ResearchGrid.xaml</DependentUpon>
+    <Compile Include="Views\ResearchControl.xaml.cs">
+      <DependentUpon>ResearchControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UploadControl.xaml.cs">
+      <DependentUpon>UploadControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -169,7 +172,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ResearchGrid.xaml">
+    <Page Include="Views\ResearchControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UploadControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
