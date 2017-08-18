@@ -5,8 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using epitecture.Models;
 using epitecture.Services;
+using epitecture.Views;
 
 namespace epitecture.ViewModels
 {
@@ -14,6 +17,7 @@ namespace epitecture.ViewModels
     {
         protected ImagePageModel _page;
         protected readonly IImageService _imageService;
+        private Frame _rootFrame = Window.Current.Content as Frame;
 
         public ObservableCollection<ImageModel> ImageList { get; set; }
         public ICommand OnAddImageToFavorite { get; set; }
@@ -39,17 +43,17 @@ namespace epitecture.ViewModels
 
         public void ShowGalleryImages(object parameter)
         {
-            // TODO Navigation to new control
+            _rootFrame.Navigate(typeof(GalleryControl), null);
         }
 
         public void ShowAccountImages(object parameter)
         {
-            // TODO Navigation to new control
+            _rootFrame.Navigate(typeof(AccountControl), null);
         }
 
         public void ShowFavorites(object parameter)
         {
-            // TODO Navigation to new control
+            _rootFrame.Navigate(typeof(FavoriteControl), null);
         }
 
     }

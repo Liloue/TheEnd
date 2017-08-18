@@ -12,11 +12,6 @@ namespace epitecture.ViewModels
 {
     public class GalleryViewModel : PageViewModelBase
     {
-
-        public GalleryViewModel()
-        {
-            
-        }
         public async Task<bool> Initialize()
         {
             bool response = await _imageService.LoadPageOfPicturesAsync(_page, 1);
