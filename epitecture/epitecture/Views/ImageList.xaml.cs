@@ -20,9 +20,9 @@ namespace epitecture.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class BodyControl : Page
+    public sealed partial class ImageList : Page
     {
-        public BodyControl()
+        public ImageList()
         {
             this.InitializeComponent();
         }

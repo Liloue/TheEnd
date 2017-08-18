@@ -35,7 +35,7 @@
                 <Button Content="Favorites"  Grid.Column="3" Foreground="White" Background="Transparent" FontFamily="Calibri" Command="{Binding OnFavoritesButton}" />
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
-                <view:BodyControl/> 
+                <view:GalleryControl/> 
             </Grid>
         </Grid>
     </Grid>
