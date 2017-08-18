@@ -103,6 +103,7 @@
     <Compile Include="ViewModels\GalleryViewModel.cs" />
     <Compile Include="ViewModels\PageViewModelBase.cs" />
     <Compile Include="ViewModels\UploadViewModel.cs" />
+    <Compile Include="ViewModels\ResearchViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
