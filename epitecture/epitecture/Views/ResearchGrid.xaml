@@ -17,11 +17,11 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Recherche : " Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <TextBox Text="Tapez votre recherche ici" Grid.Column="1" HorizontalAlignment="Center"/>
-        <Button Content="reseach" Grid.Column="2"/>
-        <TextBlock Text="Size : " Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <ComboBox Grid.Column="4" HorizontalAlignment="Left">
+        <TextBlock Text="Recherche : " Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" FontFamily="Calibri"/>
+        <TextBox Text="Tapez votre recherche ici" Grid.Column="1" HorizontalAlignment="Center" Foreground="White" Background="Transparent" FontFamily="Calibri"/>
+        <Button Content="reseach" Grid.Column="2" Foreground="White" Background="Transparent" FontFamily="Calibri"/>
+        <TextBlock Text="Size : " Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" FontFamily="Calibri"/>
+        <ComboBox Grid.Column="4" HorizontalAlignment="Left" Foreground="White" Background="Transparent" FontFamily="Calibri">
             <ComboBoxItem IsSelected="True">all</ComboBoxItem>
             <ComboBoxItem>small</ComboBoxItem>
             <ComboBoxItem>med</ComboBoxItem>
@@ -29,8 +29,8 @@
             <ComboBoxItem>irg</ComboBoxItem>
             <ComboBoxItem>huge</ComboBoxItem>
         </ComboBox>
-        <TextBlock Text="Type : " Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-        <ComboBox Grid.Column="6" HorizontalAlignment="Left">
+        <TextBlock Text="Type : " Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" FontFamily="Calibri"/>
+        <ComboBox Grid.Column="6" HorizontalAlignment="Left" Foreground="White" Background="Transparent" FontFamily="Calibri">
             <ComboBoxItem IsSelected="True">all</ComboBoxItem>
             <ComboBoxItem>jpg</ComboBoxItem>
             <ComboBoxItem>png</ComboBoxItem>

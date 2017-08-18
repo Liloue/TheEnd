@@ -13,5 +13,7 @@ namespace epitecture.Models
         public string Title { get; set; }
 
         public string Link { get; set; }
+
+        public bool Favorite { get; set; }
     }
 }

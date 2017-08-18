@@ -11,48 +11,43 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="ImageListTemplate">
-                <Grid  Height="50" Width="50" HorizontalAlignment="Stretch" Background="Pink">
+                <Grid Background="Transparent">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <TextBlock Text="TEST42" />
-                    <Image Source="{Binding Link}" Grid.Row="1" HorizontalAlignment="Center"/>
-                    <TextBlock Text="{Binding Title}" Grid.Row="2" HorizontalAlignment="Center"/>
+                    <Image Source="{Binding Link}" Grid.RowSpan="2"  HorizontalAlignment="Center"/>
+                    <Button Grid.Row="1" HorizontalAlignment="Right"
+                            Command="{Binding DataContext.OnAddImageToFavorite, ElementName=ImageListContext}"
+                            CommandParameter="{Binding}">
+                        <TextBlock Text="Add" />
+                    </Button>
                 </Grid>
             </DataTemplate>
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid>
+    <Grid x:Name="ImageListContext" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <TextBlock Text="" Visibility="Visible" Grid.Row="0"/>
-        <Grid Background="AliceBlue" Grid.Row="1">
-            <view:ResearchGrid DataContext="{Binding TaskListVM}"/>
+        <Grid Background="Transparent" Grid.Row="1">
+            <view:ResearchGrid/>
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="1" Background="Crimson">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <TextBlock Text="DEBUT" Grid.Row="0" />
-            <ListBox ItemsSource="{Binding ImageList}" 
-                     ItemTemplate="{StaticResource ImageListTemplate}" 
-                     HorizontalContentAlignment="Stretch"
-                     Grid.Row="1">
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                    </Style>
-                </ListBox.ItemContainerStyle>
-            </ListBox>
-            <TextBlock Text="FIN" Grid.Row="2"/>
-        </Grid>
+
+        <ListBox ItemsSource="{Binding ImageList}" 
+                 ItemTemplate="{StaticResource ImageListTemplate}" 
+                 HorizontalContentAlignment="Stretch"
+                 Grid.Row="2"
+                 Background="Transparent">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
     </Grid>
 </Page>

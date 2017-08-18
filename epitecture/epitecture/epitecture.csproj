@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\ResultModel.cs" />
+    <Compile Include="ViewModels\CommandBase.cs" />
     <Compile Include="ViewModels\ImageListViewModel.cs" />
     <Compile Include="Views\BodyControl.xaml.cs">
       <DependentUpon>BodyControl.xaml</DependentUpon>
@@ -119,6 +120,7 @@
     <None Include="epitecture_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Empty_Heart.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

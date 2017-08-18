@@ -142,11 +142,12 @@ namespace epitecture.Services
             request.Headers.Add("Authorization", "Bearer " + _accessToken);
 
             var response = await _myClient.SendAsync(request);
+            var toto = await response.Content.ReadAsStringAsync();
             if (imagePage != null)
             {
-                imagePage.ImageList = Newtonsoft.Json.JsonConvert.DeserializeObject<List<ImageModel>>(response.RequestMessage.ToString());
+                imagePage.ImageList = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultModel>(toto).Data;
             }
-            return (response.StatusCode == System.Net.HttpStatusCode.OK);
+            return (response.IsSuccessStatusCode);
         }
     }
 }
