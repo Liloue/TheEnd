@@ -18,7 +18,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <TextBlock Text="Recherche : " Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" FontFamily="Calibri"/>
-        <TextBox Text="Tapez votre recherche ici" Grid.Column="1" HorizontalAlignment="Center" Foreground="White" Background="Transparent" FontFamily="Calibri"/>
+        <TextBox Text="{Binding SearchText}" PlaceholderText="Tapez votre recherche ici" Grid.Column="1" HorizontalAlignment="Center" Foreground="Black" Background="Gray" FontFamily="Calibri"/>
         <Button Content="reseach" Grid.Column="2" Foreground="White" Background="Transparent" FontFamily="Calibri"/>
         <TextBlock Text="Size : " Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="White" FontFamily="Calibri"/>
         <ComboBox Grid.Column="4" HorizontalAlignment="Left" Foreground="White" Background="Transparent" FontFamily="Calibri">
