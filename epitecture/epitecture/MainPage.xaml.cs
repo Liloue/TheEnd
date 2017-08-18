@@ -38,8 +38,8 @@ namespace epitecture
 
         private async Task<bool> InitViewModel()
         {
-            var viewModel = new ImageListViewModel();
-            var response = await viewModel.LoadAccountImages();
+            var viewModel = new GalleryViewModel();
+            var response = await viewModel.Initialize();
             DataContext = viewModel;
             return (response);
         }
