@@ -58,7 +58,20 @@ namespace epitecture.ViewModels
 
         public void UpdateImages(List<ImageModel> resData)
         {
-            ImageList = new ObservableCollection<ImageModel>(resData);
+            List<ImageModel> cleanedList = new List<ImageModel>();
+            foreach (var elem in resData)
+            {
+                if (elem.Is_album == true)
+                {
+                    foreach (var image in elem.Images)
+                    {
+                        cleanedList.Add(image);
+                    }
+                }
+                else
+                    cleanedList.Add(elem);
+            }
+            ImageList = new ObservableCollection<ImageModel>(cleanedList);
             RaisePropertyChanged(nameof(ImageList));
         }
     }

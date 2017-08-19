@@ -69,13 +69,10 @@ namespace epitecture.Services
                 request.Headers.Add("Authorization", "Client-ID " + _clientId);
 
                 var response = await _myClient.SendAsync(request);
-                var toto = await response.Content.ReadAsStringAsync();
-                List<ImageModel> list = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultModel>(toto).Data;
-                list.RemoveAll(item => item.Is_album == true);
-                
+                var toto = await response.Content.ReadAsStringAsync();                
                 if (imagePage != null)
                 {
-                    imagePage.ImageList = list;
+                    imagePage.ImageList = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultModel>(toto).Data;
                 }
                 
                 return (response.StatusCode == System.Net.HttpStatusCode.OK);
