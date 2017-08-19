@@ -15,32 +15,13 @@ namespace epitecture.ViewModels
 
         protected AccountViewModel _parent;
 
-        private string _imagePath;
-        private StorageFile _file;
-
-        public string ImagePath
-        {
-            get
-            {
-                RaisePropertyChanged(nameof(ImagePath));
-                return _imagePath;
-            }
-            set
-            {
-                _imagePath = value;
-            }
-        }
-
         public ICommand OnBrowserButton { get; set; }
-        public ICommand OnUploadButton { get; set; }
 
         public UploadViewModel(IImageService imageService, AccountViewModel parent)
         {
             _imageService = imageService;
             _parent = parent;
-            _imagePath = "";
             OnBrowserButton = new CommandBase(Browser);
-            OnUploadButton = new CommandBase(Upload);
         }
 
         public async void Browser(object parameter)
@@ -54,20 +35,14 @@ namespace epitecture.ViewModels
             picker.FileTypeFilter.Add(".jpg");
             picker.FileTypeFilter.Add(".jpeg");
             picker.FileTypeFilter.Add(".png");
+            picker.FileTypeFilter.Add(".gif");
 
-            _file = await picker.PickSingleFileAsync();
-            if (_file != null)
+            var file = await picker.PickSingleFileAsync();
+            if (file != null)
             {
-                // Application now has read/write access to the picked file
-                ImagePath = _file.Path;
-                RaisePropertyChanged(nameof(ImagePath));
+                await _imageService.UploadImageAsync(file);
+                await _parent.Initialize();
             }
-        }
-        
-        public async void Upload(object parameter)
-        {
-            await _imageService.UploadImageAsync(_file);
-            await _parent.Initialize();
         }
     }
 }

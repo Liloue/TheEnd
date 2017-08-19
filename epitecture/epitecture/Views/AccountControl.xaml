@@ -8,34 +8,21 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Grid.ColumnSpan="3">
-                <local:BaseControl/>
-            </Grid>
-            <Grid Grid.Row="1" Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <TextBlock Text="" Visibility="Visible" Grid.Row="0"/>
-                <Grid Background="Transparent" Grid.Row="1">
-                    <local:UploadControl DataContext="{Binding UploadVM}"/>
-                </Grid>
-                <Grid Grid.Row="2">
-                    <local:ImageList/>
-                </Grid>
-            </Grid>
-        </Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <local:BaseControl Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Margin="0,0,0,20"/>
+        <local:ImageList Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"/>
+        <local:UploadControl DataContext="{Binding UploadVM}" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" 
+                             VerticalAlignment="Bottom" HorizontalAlignment="Center" 
+                             MaxWidth="120" MaxHeight="120"  
+                             Margin="0,0,0,40"/>
     </Grid>
 </Page>

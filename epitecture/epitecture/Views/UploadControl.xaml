@@ -7,17 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <BitmapImage x:Key="UploadIcon" UriSource="/Assets/Upload.png"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="3*" />
-        </Grid.ColumnDefinitions>
-        <TextBlock Text="Upload Image : " Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Calibri"/>
-        <TextBox Text="{Binding ImagePath, Mode=TwoWay}" HorizontalAlignment="Stretch" Grid.Column="1"  FontFamily="Calibri"/>
-        <Button Content="Browse" Command="{Binding OnBrowserButton}" Grid.Column="2" FontFamily="Calibri"/>
-        <Button Content="Upload" Command="{Binding OnUploadButton}" Grid.Column="3" FontFamily="Calibri" />
+        <Button Command="{Binding OnBrowserButton}" Background="Transparent">
+            <Grid>
+                <Ellipse Stroke="LightGray" StrokeThickness="4" Fill="Transparent"/>
+                <Image Source="{StaticResource UploadIcon}" MaxWidth="80" MaxHeight="80" Margin="5"/>
+            </Grid>
+        </Button>
     </Grid>
 </Page>

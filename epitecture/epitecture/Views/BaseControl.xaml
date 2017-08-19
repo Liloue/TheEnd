@@ -6,20 +6,47 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <BitmapImage x:Key="GalleryIcon" UriSource="/Assets/Gallery-Light.png"/>
+            <BitmapImage x:Key="AccountIcon" UriSource="/Assets/Account-Light.png"/>
+            <BitmapImage x:Key="FavoriteIcon" UriSource="/Assets/Empty_Heart-Light.png"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
 
     <Grid Background="#47474E">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Button Content="Gallery Images" Grid.Column="1" FontFamily="Calibri" Command="{Binding OnGalleryImageButton}" />
-        <Button Content="Account Images" Grid.Column="2" FontFamily="Calibri" Command="{Binding OnAccountImageButton}" />
-        <Button Content="Favorites"  Grid.Column="3"  FontFamily="Calibri" Command="{Binding OnFavoritesButton}" />
+        <Button Grid.Column="1" Command="{Binding OnGalleryImageButton}" Padding="20,0,20,0" Background="Transparent" VerticalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{StaticResource GalleryIcon}"  Width="20" Height="20"/>
+                <TextBlock Text="Gallery Images" FontFamily="Calibri" Margin="5,0,0,0"/>
+            </StackPanel>
+        </Button>
+        <AppBarSeparator Background="White"  Grid.Column="2"/>
+        <Button Grid.Column="3" Command="{Binding OnAccountImageButton}"  Padding="20,0,20,0" Background="Transparent" VerticalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{StaticResource AccountIcon}"  Width="20" Height="20"/>
+                <TextBlock Text="Account Images" FontFamily="Calibri" Margin="5,0,0,0"/>
+            </StackPanel>
+        </Button>
+        <AppBarSeparator Background="White" Grid.Column="4"/>
+        <Button Grid.Column="5" Command="{Binding OnFavoritesButton}" Padding="20,0,20,0" Background="Transparent" VerticalAlignment="Stretch">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{StaticResource FavoriteIcon}"  Width="20" Height="20"/>
+                <TextBlock Text="Favorites" FontFamily="Calibri" Margin="5,0,0,0"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Page>

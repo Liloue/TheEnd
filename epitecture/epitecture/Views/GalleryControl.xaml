@@ -26,14 +26,12 @@
             <Grid Grid.Row="1" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <TextBlock Text="" Visibility="Visible" Grid.Row="0"/>
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="0" VerticalAlignment="Center" Padding="0, 20, 0, 20">
                     <view:ResearchControl DataContext="{Binding ResearchControlVM}"/>
                 </Grid>
-                <Grid Grid.Row="2">
+                <Grid Grid.Row="1">
                     <view:ImageList/>
                 </Grid>
             </Grid>
