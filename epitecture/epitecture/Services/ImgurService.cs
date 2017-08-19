@@ -149,8 +149,8 @@ namespace epitecture.Services
         public async Task<ResultModel> SearchPicturesAsync(string quest, string size, string type, int page)
         {
             ResultModel result = new ResultModel();
-            var qType = type != "all" ? "?q_type=" + type : "";
-            var qSize = size != "all" ? "?q_size_px=" + size : "";
+            var qType = type != "all" && type != null ? "&q_type=" + type : "";
+            var qSize = size != "all" && size != null ? "&q_size_px=" + size : "";
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, new Uri("https://api.imgur.com/3/gallery/search/time/all/?" + page + qType + qSize + "&q=" + quest));
             request.Headers.Add("Authorization", "Client-ID " + _clientId);
             request.Content = new MultipartFormDataContent();

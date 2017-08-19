@@ -12,24 +12,23 @@
             <BitmapImage x:Key="SearchImage" UriSource="/Assets/Search.png" />
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid x:Name="SearchControl">
+    <Grid x:Name="SearchControl" HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Recherche : " Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"  FontFamily="Calibri"/>
-        <AutoSuggestBox Text="{Binding SearchText, Mode=TwoWay}" Grid.Column="1" QuerySubmitted="AutoSuggestBox_OnQuerySubmitted" PlaceholderText="Tapez votre recherche ici" HorizontalAlignment="Stretch"  FontFamily="Calibri"/>
-        <Button Command="{Binding OnSearchCommand}" Grid.Column="2" FontFamily="Calibri">
-            <Image Source="{StaticResource SearchImage}" Height="20" Width="20"/>
-        </Button>
-        <TextBlock Text="Size : " Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"  FontFamily="Calibri"/>
-        <ComboBox Grid.Column="4" ItemsSource="{Binding Sizes}" SelectedItem="{Binding SelectedSize, Mode=TwoWay}" HorizontalAlignment="Left"  FontFamily="Calibri"/>
-        <TextBlock Text="Type : " Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"  FontFamily="Calibri"/>
-        <ComboBox Grid.Column="6" ItemsSource="{Binding Types}" SelectedItem="{Binding SelectedType, Mode=TwoWay}" HorizontalAlignment="Left"  FontFamily="Calibri"/>
+        <Grid Grid.Column="0" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <AutoSuggestBox Grid.Column="0" Text="{Binding SearchText, Mode=TwoWay}" QuerySubmitted="AutoSuggestBox_OnQuerySubmitted" PlaceholderText="Tapez votre recherche ici" HorizontalAlignment="Stretch"  FontFamily="Calibri"/>
+            <Button Grid.Column="1" Command="{Binding OnSearchCommand}" FontFamily="Calibri">
+                <Image Source="{StaticResource SearchImage}" Height="20" Width="20"/>
+            </Button>
+        </Grid>
+        <ComboBox Grid.Column="1" ItemsSource="{Binding Sizes}" PlaceholderText="Size" SelectedItem="{Binding SelectedSize, Mode=TwoWay}" HorizontalAlignment="Left"  FontFamily="Calibri"/>
+        <ComboBox Grid.Column="2" ItemsSource="{Binding Types}" PlaceholderText="Type" SelectedItem="{Binding SelectedType, Mode=TwoWay}" HorizontalAlignment="Left"  FontFamily="Calibri"/>
     </Grid>
 </Page>

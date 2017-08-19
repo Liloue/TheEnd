@@ -27,7 +27,6 @@ namespace epitecture.ViewModels
             this._imageService = imageService;
             this._parent = parent;
             OnSearchCommand = new CommandBase(OnSearch);
-            SelectedSize = "all";
             Sizes = new ObservableCollection<string>
             {
                 "all",
@@ -37,7 +36,6 @@ namespace epitecture.ViewModels
                 "irg",
                 "huge",
             };
-            SelectedType = "all";
             Types = new ObservableCollection<string>
             {
                 "all",
