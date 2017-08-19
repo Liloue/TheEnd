@@ -62,16 +62,20 @@ namespace epitecture.Services
 
         public async Task<bool> LoadPageOfPicturesAsync(ImagePageModel imagePage, int page)
         {
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, new Uri("https://api.imgur.com/3/gallery/hot/viral/day/" + page));
-            request.Headers.Add("Authorization", "Client-ID " + _clientId);
-
-            var response = await _myClient.SendAsync(request);
-            var toto = await response.Content.ReadAsStringAsync();
-            if (imagePage != null)
+            return await Task.Run<bool>(async () =>
             {
-                imagePage.ImageList = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultModel>(toto).Data;
-            }
-            return (response.StatusCode == System.Net.HttpStatusCode.OK);
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get,
+                    new Uri("https://api.imgur.com/3/gallery/hot/viral/day/" + page));
+                request.Headers.Add("Authorization", "Client-ID " + _clientId);
+
+                var response = await _myClient.SendAsync(request);
+                var toto = await response.Content.ReadAsStringAsync();
+                if (imagePage != null)
+                {
+                    imagePage.ImageList = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultModel>(toto).Data;
+                }
+                return (response.StatusCode == System.Net.HttpStatusCode.OK);
+            });
         }
 
         public async Task<bool> LoadAccountImagesAsync(ImagePageModel imagePage)
@@ -114,11 +118,15 @@ namespace epitecture.Services
 
         public async Task<bool> DeleteImageAsync(ImageModel image)
         {
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Delete, new Uri("https://api.imgur.com/3/image/" + image.Id));
-            request.Headers.Add("Authorization", "Bearer " + _accessToken);
+            return await Task.Run<bool>(async () =>
+            {
+                HttpRequestMessage request =
+                    new HttpRequestMessage(HttpMethod.Delete, new Uri("https://api.imgur.com/3/image/" + image.Id));
+                request.Headers.Add("Authorization", "Bearer " + _accessToken);
 
-            var response = await _myClient.SendAsync(request);
-            return (response.StatusCode == System.Net.HttpStatusCode.OK);
+                var response = await _myClient.SendAsync(request);
+                return (response.StatusCode == System.Net.HttpStatusCode.OK);
+            });
         }
 
         public async Task<bool> AddImageToFavoriteAsync(ImageModel image)

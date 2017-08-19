@@ -23,11 +23,7 @@ namespace epitecture.ViewModels
         public async Task<bool> Initialize()
         {
             bool response = await _imageService.LoadPageOfPicturesAsync(_page, 1);
-            ImageList.Clear();
-            foreach (var image in _page.ImageList)
-            {
-                ImageList.Add(image);
-            }
+            this.UpdateImages(_page.ImageList);
             return (response);
         }
     }

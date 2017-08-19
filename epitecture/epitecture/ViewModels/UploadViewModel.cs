@@ -13,7 +13,7 @@ namespace epitecture.ViewModels
     {
         protected IImageService _imageService;
 
-        protected AccountViewModel _father;
+        protected AccountViewModel _parent;
 
         private string _imagePath;
         private StorageFile _file;
@@ -34,10 +34,10 @@ namespace epitecture.ViewModels
         public ICommand OnBrowserButton { get; set; }
         public ICommand OnUploadButton { get; set; }
 
-        public UploadViewModel(IImageService imageService, AccountViewModel father)
+        public UploadViewModel(IImageService imageService, AccountViewModel parent)
         {
             _imageService = imageService;
-            _father = father;
+            _parent = parent;
             _imagePath = "";
             OnBrowserButton = new CommandBase(Browser);
             OnUploadButton = new CommandBase(Upload);
@@ -67,7 +67,7 @@ namespace epitecture.ViewModels
         public async void Upload(object parameter)
         {
             await _imageService.UploadImageAsync(_file);
-            await _father.Initialize();
+            await _parent.Initialize();
         }
     }
 }

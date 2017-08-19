@@ -36,22 +36,22 @@ namespace epitecture.ViewModels
             OnFavoritesButton = new CommandBase(ShowFavorites);
         }
 
-        public void AddToFavorite(object parameter)
+        protected virtual async void AddToFavorite(object parameter)
         {
-            _imageService.AddImageToFavoriteAsync((ImageModel)parameter);
+            await _imageService.AddImageToFavoriteAsync((ImageModel)parameter);
         }
 
-        public void ShowGalleryImages(object parameter)
+        protected void ShowGalleryImages(object parameter)
         {
             _rootFrame.Navigate(typeof(GalleryControl), null);
         }
 
-        public void ShowAccountImages(object parameter)
+        protected void ShowAccountImages(object parameter)
         {
             _rootFrame.Navigate(typeof(AccountControl), null);
         }
 
-        public void ShowFavorites(object parameter)
+        protected void ShowFavorites(object parameter)
         {
             _rootFrame.Navigate(typeof(FavoriteControl), null);
         }

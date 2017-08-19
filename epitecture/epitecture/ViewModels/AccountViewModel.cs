@@ -18,11 +18,7 @@ namespace epitecture.ViewModels
         public async Task<bool> Initialize()
         {
             bool response = await _imageService.LoadAccountImagesAsync(_page);
-            ImageList.Clear();
-            foreach (var image in _page.ImageList)
-            {
-                ImageList.Add(image);
-            }
+            this.UpdateImages(_page.ImageList);
             return (response);
         }
     }

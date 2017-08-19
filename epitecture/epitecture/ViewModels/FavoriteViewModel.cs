@@ -8,14 +8,16 @@ namespace epitecture.ViewModels
 {
     public class FavoriteViewModel : PageViewModelBase
     {
+        protected override async void AddToFavorite(object parameter)
+        {
+            base.AddToFavorite(parameter);
+            await Initialize();
+        }
+
         public async Task<bool> Initialize()
         {
             bool response = await _imageService.LoadFavoritesAsync(_page);
-            ImageList.Clear();
-            foreach (var image in _page.ImageList)
-            {
-                ImageList.Add(image);
-            }
+            this.UpdateImages(_page.ImageList);
             return (response);
         }
     }
