@@ -15,5 +15,9 @@ namespace epitecture.Models
         public string Link { get; set; }
 
         public bool Favorite { get; set; }
+
+        public bool Is_album { get; set; }
+
+        public List<ImageModel> Images { get; set; }
     }
 }
