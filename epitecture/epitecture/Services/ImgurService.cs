@@ -70,10 +70,14 @@ namespace epitecture.Services
 
                 var response = await _myClient.SendAsync(request);
                 var toto = await response.Content.ReadAsStringAsync();
+                List<ImageModel> list = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultModel>(toto).Data;
+                list.RemoveAll(item => item.Is_album == true);
+                
                 if (imagePage != null)
                 {
-                    imagePage.ImageList = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultModel>(toto).Data;
+                    imagePage.ImageList = list;
                 }
+                
                 return (response.StatusCode == System.Net.HttpStatusCode.OK);
             });
         }
