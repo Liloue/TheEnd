@@ -51,9 +51,15 @@ namespace epitecture.ViewModels
 
         private async void OnSearch(object obj)
         {
+            await HackOnSearch();
+        }
+
+        public async Task<bool> HackOnSearch()
+        {
             var res = await _imageService.SearchPicturesAsync(SearchText, SelectedSize, SelectedType);
             if (res.Success)
                 _parent.UpdateImages(res.Data);
+            return res.Success;
         }
     }
 }

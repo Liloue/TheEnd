@@ -27,5 +27,14 @@ namespace epitecture.Views
         {
             this.InitializeComponent();
         }
+
+        private async void AutoSuggestBox_OnQuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            var vm = this.DataContext as ResearchViewModel;
+            if (vm != null)
+            {
+                await vm.HackOnSearch();
+            }
+        }
     }
 }

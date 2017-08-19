@@ -23,8 +23,8 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <TextBlock Text="Recherche : " Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"  FontFamily="Calibri"/>
-        <AutoSuggestBox Text="{Binding SearchText, Mode=TwoWay}" Grid.Column="1" PlaceholderText="Tapez votre recherche ici" HorizontalAlignment="Stretch"  FontFamily="Calibri"/>
-        <Button x:Name="SearchButton" Command="{Binding OnSearchCommand}" Grid.Column="2" FontFamily="Calibri">
+        <AutoSuggestBox Text="{Binding SearchText, Mode=TwoWay}" Grid.Column="1" QuerySubmitted="AutoSuggestBox_OnQuerySubmitted" PlaceholderText="Tapez votre recherche ici" HorizontalAlignment="Stretch"  FontFamily="Calibri"/>
+        <Button Command="{Binding OnSearchCommand}" Grid.Column="2" FontFamily="Calibri">
             <Image Source="{StaticResource SearchImage}" Height="20" Width="20"/>
         </Button>
         <TextBlock Text="Size : " Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"  FontFamily="Calibri"/>
