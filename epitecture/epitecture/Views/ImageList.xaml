@@ -25,8 +25,8 @@
             </DataTemplate>
         </ResourceDictionary>
     </UserControl.Resources>
-    
-    <Grid >
+
+    <Grid x:Name="ImageListContext">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>

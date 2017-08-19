@@ -22,7 +22,7 @@
             <Grid Grid.Row="0" Grid.ColumnSpan="3">
                 <local:BaseControl/>
             </Grid>
-            <Grid x:Name="ImageListContext" Grid.Row="1" Grid.Column="1">
+            <Grid Grid.Row="1" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto" />
