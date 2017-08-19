@@ -17,7 +17,7 @@ namespace epitecture.ViewModels
     {
         protected ImagePageModel _page;
         protected readonly IImageService _imageService;
-        private Frame _rootFrame = Window.Current.Content as Frame;
+        private Frame _rootFrame = Window.Current?.Content as Frame;
 
         public ObservableCollection<ImageModel> ImageList { get; set; }
         public ICommand OnAddImageToFavorite { get; set; }
@@ -43,17 +43,17 @@ namespace epitecture.ViewModels
 
         protected void ShowGalleryImages(object parameter)
         {
-            _rootFrame.Navigate(typeof(GalleryControl), null);
+            _rootFrame?.Navigate(typeof(GalleryControl), null);
         }
 
         protected void ShowAccountImages(object parameter)
         {
-            _rootFrame.Navigate(typeof(AccountControl), null);
+            _rootFrame?.Navigate(typeof(AccountControl), null);
         }
 
         protected void ShowFavorites(object parameter)
         {
-            _rootFrame.Navigate(typeof(FavoriteControl), null);
+            _rootFrame?.Navigate(typeof(FavoriteControl), null);
         }
 
         public void UpdateImages(List<ImageModel> resData)

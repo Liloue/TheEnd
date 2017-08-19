@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace epitecture.Services
 {
-    public static class ServiceProvider
+    public class ServiceProvider
     {
         private static IImageService _imageService;
         private static readonly string _accessToken = "13ee3954755a5c351d7afd24f16b507114f85029";
