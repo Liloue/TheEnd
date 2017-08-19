@@ -9,6 +9,7 @@
 
     <UserControl.Resources>
         <ResourceDictionary>
+            <BitmapImage x:Key="EmptyHeartImage" UriSource="/Assets/Empty_Heart.png" />
             <DataTemplate x:Key="ImageListTemplate">
                 <Grid >
                     <Grid.RowDefinitions>
@@ -19,7 +20,7 @@
                     <Button Grid.Row="1" HorizontalAlignment="Right"
                             Command="{Binding DataContext.OnAddImageToFavorite, ElementName=ImageListContext}"
                             CommandParameter="{Binding}">
-                        <TextBlock Text="Add" />
+                        <Image Source="{StaticResource EmptyHeartImage}" Width="20" Height="20"/>
                     </Button>
                 </Grid>
             </DataTemplate>
