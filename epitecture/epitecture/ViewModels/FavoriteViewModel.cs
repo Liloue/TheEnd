@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using epitecture.Models;
 
 namespace epitecture.ViewModels
 {
@@ -10,7 +11,7 @@ namespace epitecture.ViewModels
     {
         protected override async void AddToFavorite(object parameter)
         {
-            base.AddToFavorite(parameter);
+            await _imageService.AddImageToFavoriteAsync((ImageModel)parameter);
             await Initialize();
         }
 

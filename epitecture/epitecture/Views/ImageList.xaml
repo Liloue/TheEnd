@@ -11,7 +11,7 @@
         <ResourceDictionary>
             <BitmapImage x:Key="EmptyHeartImage" UriSource="/Assets/Empty_Heart.png" />
             <DataTemplate x:Key="ImageListTemplate">
-                <Grid >
+                <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
@@ -33,8 +33,7 @@
         </Grid.RowDefinitions>
         <ListBox ItemsSource="{Binding ImageList}" 
                  ItemTemplate="{StaticResource ImageListTemplate}" 
-                 HorizontalContentAlignment="Stretch"
-                 >
+                 HorizontalContentAlignment="Stretch">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
