@@ -24,6 +24,7 @@ namespace epitecture.ViewModels
         private async void OnRemoveImage(object obj)
         {
             await _imageService.DeleteImageAsync(obj as ImageModel);
+            await this.Initialize();
         }
 
         public async Task<bool> Initialize()

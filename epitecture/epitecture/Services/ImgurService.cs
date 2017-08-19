@@ -69,10 +69,10 @@ namespace epitecture.Services
                 request.Headers.Add("Authorization", "Client-ID " + _clientId);
 
                 var response = await _myClient.SendAsync(request);
-                var toto = await response.Content.ReadAsStringAsync();                
-                if (imagePage != null)
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    imagePage.ImageList = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultModel>(toto).Data;
+                    var body = await response.Content.ReadAsStringAsync();
+                    imagePage.ImageList = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultModel>(body).Data;
                 }
                 
                 return (response.StatusCode == System.Net.HttpStatusCode.OK);
@@ -81,16 +81,20 @@ namespace epitecture.Services
 
         public async Task<bool> LoadAccountImagesAsync(ImagePageModel imagePage)
         {
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, new Uri("https://api.imgur.com/3/account/me/images"));
-            request.Headers.Add("Authorization", "Bearer " + _accessToken);
-
-            var response = await _myClient.SendAsync(request);
-            var toto = await response.Content.ReadAsStringAsync();
-            if (imagePage != null)
+            return await Task.Run<bool>(async () =>
             {
-                imagePage.ImageList = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultModel>(toto).Data;
-            }
-            return (response.IsSuccessStatusCode);
+                HttpRequestMessage request =
+                    new HttpRequestMessage(HttpMethod.Get, new Uri("https://api.imgur.com/3/account/me/images"));
+                request.Headers.Add("Authorization", "Bearer " + _accessToken);
+
+                var response = await _myClient.SendAsync(request);
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var body = await response.Content.ReadAsStringAsync();
+                    imagePage.ImageList = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultModel>(body).Data;
+                }
+                return (response.IsSuccessStatusCode);
+            });
         }
 
         public async Task<bool> UploadImageAsync(StorageFile file)
@@ -110,7 +114,6 @@ namespace epitecture.Services
                 request.Headers.Add("Authorization", "Bearer " + _accessToken);
                 request.Content = new MultipartFormDataContent();
                 (request.Content as MultipartFormDataContent).Add(new StringContent(imageBase64), "image");
-                // new StringContent(imageBase64);
 
                 var response = await _myClient.SendAsync(request);
                 return (response.StatusCode == System.Net.HttpStatusCode.OK);
@@ -132,20 +135,15 @@ namespace epitecture.Services
 
         public async Task<bool> AddImageToFavoriteAsync(ImageModel image)
         {
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, new Uri("https://api.imgur.com/3/image/" + image.Id + "/favorite"));
-            request.Headers.Add("Authorization", "Bearer " + _accessToken);
+            return await Task.Run<bool>(async () =>
+            {
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post,
+                    new Uri("https://api.imgur.com/3/image/" + image.Id + "/favorite"));
+                request.Headers.Add("Authorization", "Bearer " + _accessToken);
 
-            var response = await _myClient.SendAsync(request);
-            return (response.StatusCode == System.Net.HttpStatusCode.OK);
-        }
-
-        public async Task<bool> RemoveImageFromFavoriteAsync(ImageModel image)
-        {
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, new Uri("https://api.imgur.com/3/image/" + image.Id + "/favorite"));
-            request.Headers.Add("Authorization", "Bearer " + _accessToken);
-
-            var response = await _myClient.SendAsync(request);
-            return (response.StatusCode == System.Net.HttpStatusCode.OK);
+                var response = await _myClient.SendAsync(request);
+                return (response.StatusCode == System.Net.HttpStatusCode.OK);
+            });
         }
 
         public async Task<ResultModel> SearchPicturesAsync(string quest, string size, string type, int page)
@@ -158,9 +156,13 @@ namespace epitecture.Services
             request.Content = new MultipartFormDataContent();
             (request.Content as MultipartFormDataContent).Add(new StringContent("swdfsdf"), "wsef");
             var response = await _myClient.SendAsync(request);
-            var body = await response.Content.ReadAsStringAsync();
-            result = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultModel>(body);
             result.Success = response.StatusCode == System.Net.HttpStatusCode.OK;
+            if (result.Success)
+            {
+                var body = await response.Content.ReadAsStringAsync();
+                result = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultModel>(body);
+            }
+
             return (result);
         }
 
@@ -170,10 +172,10 @@ namespace epitecture.Services
             request.Headers.Add("Authorization", "Bearer " + _accessToken);
 
             var response = await _myClient.SendAsync(request);
-            var toto = await response.Content.ReadAsStringAsync();
             if (imagePage != null)
             {
-                imagePage.ImageList = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultModel>(toto).Data;
+                var body = await response.Content.ReadAsStringAsync();
+                imagePage.ImageList = Newtonsoft.Json.JsonConvert.DeserializeObject<ResultModel>(body).Data;
             }
             return (response.IsSuccessStatusCode);
         }
