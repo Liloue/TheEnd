@@ -20,6 +20,7 @@ namespace epitecture.ViewModels
         private Frame _rootFrame = Window.Current?.Content as Frame;
 
         public ObservableCollection<ImageModel> ImageList { get; set; }
+        public virtual bool IsDeleteButtonVisible => false;
         public ICommand OnAddImageToFavorite { get; set; }
         public ICommand OnGalleryImageButton { get; set; }
         public ICommand OnAccountImageButton { get; set; }

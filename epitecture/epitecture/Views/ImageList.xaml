@@ -10,14 +10,25 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <BitmapImage x:Key="EmptyHeartImage" UriSource="/Assets/Empty_Heart.png" />
+            <BitmapImage x:Key="RemoveImage" UriSource="/Assets/Remove.png" />
+            <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
             <DataTemplate x:Key="ImageListTemplate">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <Image Source="{Binding Link}" Grid.RowSpan="2"  HorizontalAlignment="Center"/>
-                    <Button Grid.Row="1" HorizontalAlignment="Right"
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{Binding Link}" Grid.ColumnSpan="2" Grid.RowSpan="2"  HorizontalAlignment="Center"/>
+                    <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Visibility="{Binding DataContext.IsDeleteButtonVisible, Converter={StaticResource BoolToVisibilityConverter},  ElementName=ImageListContext}"
+                            Command="{Binding DataContext.RemoveImageCommand, ElementName=ImageListContext}"
+                            CommandParameter="{Binding}">
+                        <Image Source="{StaticResource RemoveImage}" Width="20" Height="20"/>
+                    </Button>
+                    <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right"
                             Command="{Binding DataContext.OnAddImageToFavorite, ElementName=ImageListContext}"
                             CommandParameter="{Binding}">
                         <Image Source="{StaticResource EmptyHeartImage}" Width="20" Height="20"/>
